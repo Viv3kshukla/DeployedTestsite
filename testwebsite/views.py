@@ -55,3 +55,17 @@ def form_view(request):
     }
 
     return render(request,'form.html',context)
+
+def receive_view(request):
+    val=request.GET.get('distance')
+    print(val)
+    try:
+        with open('testfile.txt', 'a') as file:
+
+            file.write(str(val))
+            file.write("\n")
+
+    except FileNotFoundError:
+        print('there was some error in opening in file')
+
+    return redirect('index_view')
