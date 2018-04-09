@@ -56,6 +56,7 @@ def form_view(request):
 
     return render(request,'form.html',context)
 
+<<<<<<< HEAD
 def receive_view(request):
     val=request.GET.get('distance')
     print(val)
@@ -63,6 +64,14 @@ def receive_view(request):
         with open('testfile.txt', 'a') as file:
 
             file.write(str(val))
+=======
+def receive_view(request,id=None):
+    print(id)
+    try:
+        with open('testfile.txt', 'a') as file:
+            print('heyy now brown cow')
+            file.write(str(id))
+>>>>>>> origin/master
             file.write("\n")
 
     except FileNotFoundError:
