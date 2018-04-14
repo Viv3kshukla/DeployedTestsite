@@ -3,10 +3,4 @@
 None
 None
 234,afe,adf,afd
-<<<<<<< HEAD
-=======
-None
-None
-asdf
-vivek
->>>>>>> origin/master
+

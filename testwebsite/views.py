@@ -7,6 +7,18 @@ from django.contrib import messages
 
 def index_view(request):
     context={}
+    if request.method=='POST':
+
+        try:
+            with open('testfile.txt', 'w') as file:
+
+                print(file.name)
+
+
+        except FileNotFoundError:
+            print('there was some error in opening in file')
+
+        redirect('index_view')
     try:
         with open('testfile.txt', 'r') as file:
             f_contents=[]
@@ -56,22 +68,17 @@ def form_view(request):
 
     return render(request,'form.html',context)
 
-<<<<<<< HEAD
-def receive_view(request):
-    val=request.GET.get('distance')
-    print(val)
-    try:
-        with open('testfile.txt', 'a') as file:
 
-            file.write(str(val))
-=======
 def receive_view(request,id=None):
-    print(id)
+
+    print('something is going to get wrong lets see that out')
+
+    file=open('testfile.txt', 'a')
+    file.write('receive has been visited\n')
+    file.close()
     try:
         with open('testfile.txt', 'a') as file:
-            print('heyy now brown cow')
             file.write(str(id))
->>>>>>> origin/master
             file.write("\n")
 
     except FileNotFoundError:
